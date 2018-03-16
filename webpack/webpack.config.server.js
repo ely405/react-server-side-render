@@ -14,4 +14,4 @@ export default webpackMerge(commonConfig(type), {
 	output: output(type),
 	plugins: plugins(type),
 	target: target(type)
-})
+});
