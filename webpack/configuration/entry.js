@@ -16,6 +16,6 @@ export default type => {
 		);
 	}
 
-	entry.main.push('.7client.js');
+	entry.main.push('./client.js');
 	return entry;
 }

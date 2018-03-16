@@ -2,9 +2,11 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 import webpack from 'webpack';
 
-const isDevelopment = process.env.NODE_ENV !== 'production';
+const production = 'production';
+const isDevelopment = process.env.NODE_ENV !== production;
 
 export default () => {
+	// let plugins= [];
 	const plugins = [
 		new ExtractTextPlugin({
 			filename: '../../public/css/style.css'
