@@ -6,11 +6,10 @@ const production = 'production';
 const isDevelopment = process.env.NODE_ENV !== production;
 
 export default () => {
-	// let plugins= [];
 	const plugins = [
 		new ExtractTextPlugin({
 			filename: '../../public/css/style.css'
-		})
+		}),
 	];
 
 	if (isDevelopment) {

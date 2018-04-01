@@ -1,5 +1,4 @@
 import express from 'express';
-import open from 'open'; // para abrir la página desdes de correr el servidor
 import path from 'path';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
@@ -21,6 +20,5 @@ app.use(webpackHotServerMiddleware(compiler));
 app.listen(port, err => {
 	if (!err) {
 		console.log(`Àpp is running on port ${port}`);
-		open(`http://localhost:${port}`);
 	}
 });
