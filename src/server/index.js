@@ -7,12 +7,32 @@ import webpackHotServerMiddleware from 'webpack-hot-server-middleware';
 
 import webpackConfig from '../../webpack.config';
 
+//utils
+import { isMobile } from '../shared/utils/device';
+
+// api
+import api from './api';
+import { API_ROUTE } from '../constants/api-routes';
+
+
+//express app
 const app = express();
 const compiler = webpack(webpackConfig);
 const port = process.env.NODE_PORT || 3005;
 
+//PUBLIC STATIC
 app.use(express.static(path.join(__dirname, '../../public')));
 
+//API MIDDLEWARE
+app.use(API_ROUTE, api);
+
+//DEVICE DETECTION
+app.use((req, res, next) => {
+	req.isMobile = isMobile(req.headers['user-agent']);
+	return next();
+});
+
+//HOT MODULE REPLACEMENT
 app.use(webpackDevMiddleware(compiler));
 app.use(webpackHotMiddleware(compiler.compilers.find(compiler => compiler.name === 'client')));
 app.use(webpackHotServerMiddleware(compiler));

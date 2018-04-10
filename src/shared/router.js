@@ -1,13 +1,15 @@
 import Home from '../app/Home/components/Home';
 import About from '../app/About/components/About';
 
+import { HOME, ABOUT } from '../constants/routes';
+
 const routes = [
 	{
-		path: '/',
+		path: HOME,
 		component: Home,
 		exact: true
 	},{
-		path: '/about',
+		path: ABOUT,
 		component: About
 	}
 ]
